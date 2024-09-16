@@ -5,16 +5,20 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Evento extends EntidadeAbstrata{
    private String nome;
    private String descriao;
    private int capacidade;
-   //private User gerenciador[];//esses dois tão dando problema
+   
+   @ManyToMany
+   private List<User> gerenciador;//esses dois tão dando problema
    @ManyToOne
    @JoinColumn(name = "Lugar_id")
    private Lugar lugar;
