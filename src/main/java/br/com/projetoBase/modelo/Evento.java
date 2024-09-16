@@ -1,7 +1,12 @@
 
 package br.com.projetoBase.modelo;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.util.Date;
 
 @Entity
@@ -10,7 +15,9 @@ public class Evento extends EntidadeAbstrata{
    private String descriao;
    private int capacidade;
    //private User gerenciador[];//esses dois tão dando problema
-   //private Lugar local;
+   @ManyToOne
+   @JoinColumn(name = "Lugar_id")
+   private Lugar lugar;
    private Date inicio;
    private Date fim;
    //metodos

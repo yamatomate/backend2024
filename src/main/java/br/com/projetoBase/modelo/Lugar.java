@@ -2,6 +2,8 @@
 package br.com.projetoBase.modelo;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 //lugar = local
@@ -13,6 +15,8 @@ public class Lugar extends EntidadeAbstrata{
     //private LocalExtras locaisExtras;
     /*poderia ser uma lista de ids com locais que pertecem ao maior
     ex: patio, nele vai ter um banheiro como um local "extra" */
+    @OneToMany(mappedBy = "lugar")
+    private List<Evento> eventos;
     //meotodos
     //sets e gets
 
