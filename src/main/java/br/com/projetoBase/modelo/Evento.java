@@ -18,7 +18,7 @@ public class Evento extends EntidadeAbstrata{
    private int capacidade;
    
    @ManyToMany
-   private List<User> gerenciador;//esses dois tão dando problema
+   private List<Usuario> gerenciador;//esses dois tão dando problema
    @ManyToOne
    @JoinColumn(name = "Lugar_id")
    private Lugar lugar;

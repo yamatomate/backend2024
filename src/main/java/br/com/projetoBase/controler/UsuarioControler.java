@@ -57,7 +57,7 @@ public class UsuarioControler {
             var usuario = (Usuario) authenticate.getPrincipal();
 
             UsuarioRetorno usuarioRetorno = new UsuarioRetorno(
-                    usuario.getNome(),
+                    usuario.getNomeUsuario(),
                     usuario.getTipoUsuario(),
                     tokenService.gerarToken(usuario)
             );
@@ -73,9 +73,9 @@ public class UsuarioControler {
 
         Usuario usuario = new Usuario();
         usuario.setTipoUsuario(usuarioCadastro.tipoUsuario());
-        usuario.setNome(usuarioCadastro.nome());
-        usuario.setUser(usuarioCadastro.user());
-        usuario.setPass(new BCryptPasswordEncoder().encode(usuarioCadastro.pass()));
+        usuario.setNomeUsuario(usuarioCadastro.nome());
+        usuario.setMatricula(usuarioCadastro.matricula());
+        usuario.setSenha(new BCryptPasswordEncoder().encode(usuarioCadastro.pass()));
         
         Usuario usuarioSalvo = usuarioService.salvar(usuario);
 
@@ -98,7 +98,7 @@ public class UsuarioControler {
     @GetMapping("/carregarUser")
     public ResponseEntity<?> carregarUser(@AuthenticationPrincipal Usuario usuario){
         UsuarioRetorno usuarioRetorno = new UsuarioRetorno(
-                usuario.getNome(),
+                usuario.getNomeUsuario(),
                 usuario.getTipoUsuario(),
                 tokenService.gerarToken(usuario)
         );

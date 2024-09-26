@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UsuarioRepositorio extends JpaRepository<Usuario, Long>{
 
-    Usuario findByUser(String nome);
+    Usuario findByNomeUsuario(String nomeUsuario);
     
     Usuario save(Usuario usuario);
 

@@ -35,7 +35,7 @@ public class FilterToken extends OncePerRequestFilter {
             token = authorizationHeader.replace(CostantesSeguranca.PREFIXO_TOKEN, "");
             var subject = this.tokenService.getSubject(token);
 
-            Usuario usuario = this.usuarioRepositorio.findByUser(subject);
+            Usuario usuario = this.usuarioRepositorio.findByNomeUsuario(subject);
 
             var authetication = new UsernamePasswordAuthenticationToken(usuario,
                     null,
